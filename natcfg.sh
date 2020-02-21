@@ -6,13 +6,13 @@ mkdir $base 2>/dev/null
 conf=$base/conf
 touch $conf
 
-# wget -qO natcfg.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/natcfg.sh && bash natcfg.sh
+# wget -qO natcfg.sh https://raw.githubusercontent.com/seal0207/iptablesUtils/master/natcfg.sh && bash natcfg.sh
 echo -e "${red}用途${black}: 便捷的设置iptables端口转发"
 echo -e "${red}注意1${black}: 到域名的转发规则在添加后需要等待2分钟才会生效，且在机器重启后仍然有效"
 echo -e "${red}注意2${black}: 到IP的转发规则在重启后会失效，这是iptables的特性"
 echo
 setupService(){
-    wget -qO /usr/local/bin/dnat.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/dnat.sh||{
+    wget -qO /usr/local/bin/dnat.sh https://raw.githubusercontent.com/seal0207/iptablesUtils/master/dnat.sh||{
         echo "脚本不存在，请通过github提交issue通知作者"
         exit 1
     }
@@ -184,7 +184,7 @@ rmSnat(){
 
 
 
-echo  -e "${red}你要做什么呢（请输入数字）？Ctrl+C 退出本脚本${black}"
+echo  -e "${red}Seal Fork你要做什么呢（请输入数字）？Ctrl+C 退出本脚本${black}"
 select todo in 增加到域名的转发 删除到域名的转发 增加到IP的转发 删除到IP的转发 列出所有到域名的转发 查看iptables转发规则
 do
     case $todo in
